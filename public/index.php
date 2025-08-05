@@ -1,6 +1,41 @@
 <?php
 session_start();
 require_once '../config/config.php';
+
+// Routing API
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+if (strpos($uri, '/api/') === 0) {
+    header('Content-Type: application/json; charset=utf-8');
+    
+    switch ($uri) {
+        case '/api/convert':
+            $controller = new \App\Controllers\CurrencyController();
+            $controller->convert();
+            break;
+            
+        case '/api/iban':
+            $controller = new \App\Controllers\IbanController();
+            $controller->validate();
+            break;
+
+        case '/api/loan':
+            $controller = new \App\Controllers\LoanController();
+            $controller->calculate();
+            break;
+            
+        default:
+            jsonResponse(['success' => false, 'message' => 'Endpoint non trouvé'], 404);
+            break;
+    }
+    exit;
+}
+function jsonResponse($data, $statusCode = 200) {
+    http_response_code($statusCode);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($data, JSON_UNESCAPED_UNICODE);
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">

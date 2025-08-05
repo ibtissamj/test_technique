@@ -1,0 +1,9 @@
+# public/.htaccess
+RewriteEngine On
+
+# Ne pas appliquer la réécriture sur les fichiers/dossiers réels
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rediriger toutes les autres requêtes vers index.php
+RewriteRule ^(.*)$ index.php [QSA,L]

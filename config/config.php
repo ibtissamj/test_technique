@@ -30,13 +30,14 @@ date_default_timezone_set('Europe/Paris');
 // Configuration des APIs externes
 define('API_CONFIG', [
     'exchange_rates' => [
-        'base_url' => 'https://api.exchangeratesapi.io/v1/',
+        'base_url' => 'https://api.exchangeratesapi.io/v1',
         'endpoints' => [
             'latest' => 'latest',
             'convert' => 'convert'
         ],
-        // Pas de clé API requise pour ExchangeRates.host
-        'api_key' => null
+        // // Pas de clé API requise pour ExchangeRates.host
+        'api_key' => getenv('API_KEY')
+
     ],
     'openiban' => [
         'base_url' => 'https://openiban.com/',

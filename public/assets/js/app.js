@@ -70,7 +70,7 @@ async function handleCurrencyConversion(e) {
 
     try {
         // TODO: Implémenter l'appel API vers /api/convert.php via CurrencyController
-        const response = await fetch('/api/convert.php', {
+        const response = await fetch('/api/convert', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ async function handleIbanValidation(e) {
 
     try {
         // TODO: Implémenter l'appel API vers /api/iban.php via IbanController
-        const response = await fetch('/api/iban.php', {
+        const response = await fetch('/api/iban', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ async function handleLoanCalculation(e) {
 
     try {
         // TODO: Implémenter l'appel API vers /api/loan.php via LoanController
-        const response = await fetch('/api/loan.php', {
+        const response = await fetch('/api/loan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

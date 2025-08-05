@@ -74,6 +74,7 @@ async function handleCurrencyConversion(e) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+
             },
             body: JSON.stringify(data)
         });
@@ -222,6 +223,8 @@ async function handleLoanCalculation(e) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json'
+
             },
             body: JSON.stringify(data)
         });

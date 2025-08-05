@@ -167,13 +167,11 @@ class CurrencyService
     {
         $endpoint = API_CONFIG['exchange_rates']['endpoints']['latest'];
         $params = [
+            'access_key' => $this->apiKey,
             'base' => $base,
             'symbols' => $symbolsStr
         ];
         
-        if (!empty($this->apiKey)) {
-            $params['access_key'] = $this->apiKey;
-        }
         
         $url = $this->baseUrl . '/' . $endpoint . '?' . http_build_query($params);
 

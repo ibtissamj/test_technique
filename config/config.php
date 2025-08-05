@@ -134,6 +134,9 @@ function sanitizeInput($input)
     if (is_array($input)) {
         return array_map('sanitizeInput', $input);
     }
+    if (!is_string($input)) {
+        return '';
+    }
     return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
 }
 
